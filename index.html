@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amermullo - Coming Soon</title>
+    <link rel="icon" type="image/png" href="browserLogo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F8FAFC;
+            --surface: #FFFFFF;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+            --border: #E2E8F0;
+            /* Vibrant Blue Accent */
+            --primary: #2563EB;
+            --primary-hover: #1D4ED8;
+            --primary-light: #EFF6FF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(at 0% 0%, #ffffff 0px, transparent 50%),
+                radial-gradient(at 100% 100%, #EFF6FF 0px, transparent 50%);
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            display: flex;
+            align-items: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-img {
+            height: 48px;
+            width: auto;
+            transition: transform 0.3s ease;
+            object-fit: contain;
+        }
+
+        .logo:hover .logo-img {
+            transform: scale(1.05);
+        }
+
+        /* Main Hero Section */
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 64px;
+            padding: 40px 0 80px 0;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 540px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--primary-light);
+            border-radius: 100px;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            animation: slideUp 0.8s ease-out both;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .headline {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+            animation: slideUp 0.8s ease-out 0.1s both;
+        }
+
+        .headline span {
+            color: var(--primary);
+        }
+
+        .tagline-bold {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            animation: slideUp 0.8s ease-out 0.15s both;
+        }
+
+        .tagline {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        /* Countdown Styling */
+        .countdown {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 48px;
+            animation: slideUp 0.8s ease-out 0.3s both;
+        }
+
+        .cd-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            width: 84px;
+            height: 84px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cd-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+            border-color: #CBD5E1;
+        }
+
+        .cd-num {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .cd-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Email Form */
+        .notify-wrapper {
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        .signup-form {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .signup-form input {
+            flex: 1;
+            padding: 0 20px;
+            height: 52px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            color: var(--text-primary);
+            background: var(--surface);
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+        }
+
+        .signup-form input::placeholder {
+            color: #94A3B8;
+        }
+
+        .signup-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+
+        .signup-form button {
+            height: 52px;
+            padding: 0 28px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+            transition: all 0.2s ease;
+        }
+
+        .signup-form button:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(37, 99, 235, 0.4);
+        }
+
+        .signup-form button:active {
+            transform: translateY(0);
+        }
+
+        .success-msg {
+            display: none;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: #10B981;
+        }
+
+        .spam-notice {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Socials */
+        .socials {
+            display: flex;
+            gap: 12px;
+            margin-top: 48px;
+            animation: slideUp 0.8s ease-out 0.5s both;
+        }
+
+        .social-btn {
+            width: 42px;
+            height: 42px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .social-btn:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1);
+        }
+
+        .social-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Hero Visual (Designer-feeling SVG placeholder) */
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 600px;
+            animation: fadeIn 1.2s ease-out 0.2s both;
+        }
+
+        .illustration-wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        .illustration-wrapper svg {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Floating animations for SVG groups */
+        .float-1 {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .float-2 {
+            animation: float 8s ease-in-out infinite alternate-reverse;
+        }
+
+        .float-3 {
+            animation: float 5s ease-in-out infinite 1s;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.9);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            main {
+                gap: 40px;
+            }
+
+            .headline {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 860px) {
+            main {
+                flex-direction: column;
+                justify-content: flex-start;
+                text-align: center;
+                padding-top: 20px;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0 auto;
+            }
+
+            .countdown {
+                justify-content: center;
+            }
+
+            .signup-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .signup-form input,
+            .signup-form button {
+                width: 100%;
+            }
+
+            .hero-visual {
+                order: -1;
+                margin-bottom: 32px;
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Amermullo Logo" class="logo-img">
+            </a>
+        </header>
+
+        <main>
+            <div class="hero-content">
+                <div class="badge">
+                    <div class="badge-dot"></div>
+                    Amermullo.com
+                </div>
+
+                <h1 class="headline">
+                    Coming <span>Soon</span>
+                </h1>
+
+                <p class="tagline-bold">
+                    Compare. Choose. Save.
+                </p>
+
+                <p class="tagline">
+                    Bangladesh’s smart marketplace to compare products & prices easily. The best deals are just around
+                    the corner.
+                </p>
+
+                <div class="countdown">
+                    <div class="cd-box">
+                        <div class="cd-num" id="days">00</div>
+                        <div class="cd-label">Days</div>
+                    </div>
+                    <div class="cd-box">
+                        <div class="cd-num" id="hours">00</div>
+                        <div class="cd-label">Hours</div>
+                    </div>
+                    <div class="cd-box">
+                        <div class="cd-num" id="minutes">00</div>
+                        <div class="cd-label">Mins</div>
+                    </div>
+                    <div class="cd-box">
+                        <div class="cd-num" id="seconds">00</div>
+                        <div class="cd-label">Secs</div>
+                    </div>
+                </div>
+
+                <div class="notify-wrapper">
+                    <form class="signup-form" id="signup-form">
+                        <input type="email" id="email" placeholder="Enter your email address..." required>
+                        <button type="submit">Notify Me</button>
+                    </form>
+                    <div class="success-msg" id="success-msg">✓ You're added to our waiting list!</div>
+                    <div class="spam-notice" id="spam-notice">No spam, just important updates.</div>
+                </div>
+
+                <div class="socials">
+                    <a href="#" class="social-btn" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="illustration-wrapper">
+                    <!-- A beautiful, clean, designer-made SVG illustration -->
+                    <svg viewBox="0 0 600 500" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="border-radius: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08);">
+                        <!-- Base Canvas -->
+                        <rect width="600" height="500" fill="#FFFFFF" />
+
+                        <!-- Soft Graph Pattern Background -->
+                        <path
+                            d="M0 50H600M0 100H600M0 150H600M0 200H600M0 250H600M0 300H600M0 350H600M0 400H600M0 450H600"
+                            stroke="#F1F5F9" stroke-width="2" />
+                        <path
+                            d="M50 0V500M100 0V500M150 0V500M200 0V500M250 0V500M300 0V500M350 0V500M400 0V500M450 0V500M500 0V500M550 0V500"
+                            stroke="#F1F5F9" stroke-width="2" />
+
+                        <!-- Floating Abstract Decorative Elements -->
+                        <g class="float-1">
+                            <circle cx="160" cy="140" r="50" fill="#DBEAFE" />
+                            <circle cx="480" cy="380" r="80" fill="#EFF6FF" />
+                        </g>
+
+                        <!-- Main Product/App representation (Mockup card) -->
+                        <g class="float-2">
+                            <rect x="180" y="120" width="260" height="280" rx="24" fill="#FFFFFF"
+                                filter="drop-shadow(0 20px 25px rgba(15, 23, 42, 0.05))" stroke="#E2E8F0"
+                                stroke-width="1" />
+
+                            <!-- Image Placeholder area in card -->
+                            <rect x="200" y="140" width="220" height="130" rx="16" fill="#F8FAFC" />
+                            <!-- Small image icon inside -->
+                            <path d="M290 220 L305 195 L315 210 L330 185 L350 220 Z" fill="#CBD5E1" opacity="0.6" />
+                            <circle cx="280" cy="180" r="12" fill="#CBD5E1" opacity="0.6" />
+
+                            <!-- Product Title -->
+                            <rect x="200" y="295" width="140" height="12" rx="6" fill="#E2E8F0" />
+                            <!-- Specs / Subtitle -->
+                            <rect x="200" y="320" width="80" height="8" rx="4" fill="#CBD5E1" />
+
+                            <!-- Action Button & Price -->
+                            <rect x="200" y="350" width="70" height="24" rx="6" fill="#2563EB" />
+                            <rect x="360" y="352" width="60" height="20" rx="10" fill="#E2E8F0" />
+                        </g>
+
+                        <!-- Floating Comparison Item -->
+                        <g class="float-3">
+                            <rect x="350" y="240" width="200" height="80" rx="16" fill="#FFFFFF"
+                                filter="drop-shadow(0 15px 20px rgba(15, 23, 42, 0.08))" stroke="#E2E8F0"
+                                stroke-width="1" />
+                            <!-- Green marker / Badge -->
+                            <circle cx="385" cy="280" r="16" fill="#10B981" />
+                            <path d="M378 280 L383 285 L392 275" stroke="#FFFFFF" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <!-- Info lines -->
+                            <rect x="420" y="270" width="90" height="8" rx="4" fill="#94A3B8" />
+                            <rect x="420" y="286" width="60" height="6" rx="3" fill="#CBD5E1" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Set a launch date (e.g., 200 days from today)
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 200);
+        launchDate.setHours(10, 0, 0, 0);
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate.getTime() - now;
+
+            if (distance < 0) return;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+        }
+
+        // Call it once then start interval
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Form submission animation logic
+        document.getElementById('signup-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const emailInput = document.getElementById('email');
+
+            if (emailInput.value.trim() !== "") {
+                this.style.display = 'none';
+                document.getElementById('spam-notice').style.display = 'none';
+
+                const successMsg = document.getElementById('success-msg');
+                successMsg.style.display = 'block';
+                successMsg.style.animation = 'slideUp 0.5s ease-out';
+            }
+        });
+    </script>
+</body>
+
+</html>
